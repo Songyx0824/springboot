@@ -3,19 +3,13 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
+    <parent>
+        <groupId>com.song.atguigu</groupId>
+        <artifactId>springboot</artifactId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
 
-    <groupId>com.song.atguigu</groupId>
-    <artifactId>springboot</artifactId>
-    <version>1.0-SNAPSHOT</version>
-    <packaging>pom</packaging>
-    <modules>
-        <module>chapter01-stream</module>
-        <module>chapter02-reactor</module>
-        <module>chapter03-webflux</module>
-        <module>chapter04-radbc</module>
-        <module>chapter05-security</module>
-        <module>demotest</module>
-    </modules>
+    <artifactId>demotest</artifactId>
 
     <properties>
         <maven.compiler.source>22</maven.compiler.source>
