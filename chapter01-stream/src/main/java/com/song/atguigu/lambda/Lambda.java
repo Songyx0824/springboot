@@ -3,6 +3,13 @@ package com.song.atguigu.lambda;
 
 //函数式接口
 
+import org.junit.jupiter.api.Test;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.Comparator;
+import java.util.List;
+
 interface MyInterface{
     int sum(int i ,int j);
 }
@@ -12,7 +19,38 @@ interface  MyHaHa{
 }
 public class Lambda {
 
+
     public static void main(String[] args) {
+        List<String> names = new ArrayList<>();
+
+        names.add("Alice");
+        names.add("Bob");
+        names.add("Charlie");
+        names.add("David");
+
+//        Collections.sort(names, new Comparator<String>() {
+//            @Override
+//            public int compare(String o1, String o2) {
+//                return o2.compareTo(o1);
+//            }
+//        });
+
+
+        //Collections.sort(names,(o1, o2) -> o1.compareTo(o2) );
+
+        //只能从小到大排列
+
+        Collections.sort(names, String::compareTo);
+        System.out.println(names);
+    }
+
+
+
+
+
+
+    @Test
+    public void aaa() {
         //1. 自己创建实现类对象
 
         //2。 匿名实现类
