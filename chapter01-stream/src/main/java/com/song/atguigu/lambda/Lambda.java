@@ -1,19 +1,20 @@
 package com.song.atguigu.lambda;
 
-
-//函数式接口
-
 import org.junit.jupiter.api.Test;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import java.util.Comparator;
 import java.util.List;
+import java.util.UUID;
+import java.util.function.Supplier;
 
+
+//函数式接口
 interface MyInterface{
     int sum(int i ,int j);
 }
 
+@FunctionalInterface
 interface  MyHaHa{
     int haha(int y);
 }
@@ -35,18 +36,20 @@ public class Lambda {
 //            }
 //        });
 
-
-        //Collections.sort(names,(o1, o2) -> o1.compareTo(o2) );
-
+        //Collections.sort(names,(o1, o2) -> o1.compareTo(o2));
         //只能从小到大排列
-
         Collections.sort(names, String::compareTo);
         System.out.println(names);
     }
 
 
+    @Test
+    public void MyInterFacee(){
 
+        Supplier<String> supplier = () -> UUID.randomUUID().toString().replaceAll("-","");
 
+        System.out.println(supplier.get());
+    }
 
 
     @Test
