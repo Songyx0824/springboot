@@ -7,7 +7,9 @@ import org.junit.jupiter.api.Test;
 
 import javax.swing.*;
 import java.util.Arrays;
+import java.util.Collections;
 import java.util.List;
+import java.util.stream.Collectors;
 import java.util.stream.Stream;
 
 public class StreamDemo {
@@ -55,11 +57,11 @@ public class StreamDemo {
         list.stream()
                 .filter(person -> person.age>18)
                 .map(person -> person.getName())
+                .peek(System.out::println)
                 .flatMap(e -> {
                   String[] str = e.split(" ");
                   return Arrays.stream(str);
                 })
-                .sorted()
                 .forEach( e -> {
 
 //                    try {
@@ -70,5 +72,26 @@ public class StreamDemo {
                     System.out.println(STR."元素: \{e}");
 
                 });
+    }
+
+
+    @Test
+    public void CollectStreamDemo(){
+        List<Integer> collect = List.of(1, 2, 3, 4, 5)
+                .stream()
+                .filter(i -> i > 2)
+                .collect(Collectors.toList());
+
+        System.out.println("filter: " + collect);
+
+
+        List<Integer> collect1 = List.of(1, 2, 3, 4, 5)
+                .stream()
+                //takeWhile 当满足条件时 拿取该元素 ; 不满足条件时直接结束
+                .takeWhile(i -> i > 2)
+                .collect(Collectors.toList());
+
+        System.out.println("takeWhile: " + collect1);
+
     }
 }
